@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session
-from src.models.user import User
-from src.models.blog import Blog
-from src.common.database import Database
+from models.user import User
+from models.blog import Blog
+from common.database import Database
 
 app = Flask(__name__)
 app.secret_key = "woodez"
