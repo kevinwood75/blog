@@ -6,9 +6,13 @@ import datetime
 
 
 class User(object):
-    def __init__(self, email, password, _id=None):
+    def __init__(self, email, password, player, age, sport, team,  _id=None):
         self.email = email
         self.password = password
+        self.player = player
+        self.age = age
+        self.sport = sport
+        self.team = team
         self._id = uuid.uuid4().hex if _id is None else _id
 
     @classmethod
@@ -34,11 +38,11 @@ class User(object):
         return False
 
     @classmethod
-    def register(cls, email, password):
+    def register(cls, email, password, player, age, sport, team):
         user = cls.get_by_email(email)
         if user is None:
             # User doesn't exist, so we can create it
-            new_user = cls(email, password)
+            new_user = cls(email, password, player, age, sport, team)
             new_user.save_to_mongo()
             session['email'] = email
             return True
@@ -78,7 +82,11 @@ class User(object):
         return {
             "email": self.email,
             "_id": self._id,
-            "password": self.password
+            "password": self.password,
+            "player": self.player,
+            "age": self.age,
+            "sport": self.sport,
+            "team": self.team
         }
 
     def save_to_mongo(self):

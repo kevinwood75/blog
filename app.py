@@ -22,6 +22,8 @@ def register_template():
     return render_template('resgister.html')
 
 
+
+
 @app.before_first_request
 def initialize_database():
     Database.initialize()
@@ -34,20 +36,23 @@ def login_user():
 
     if User.login_valid(email, password):
         User.login(email)
+        data = User.get_by_email(email)
+        return render_template("profile.html", email=session['email'], player=data.player, age=data.age, sport=data.sport, team=data.team)
     else:
         session['email'] = None
+        return render_template("login.html", email=session['email'])
 
-    return render_template("profile.html", email=session['email'])
 
-
-@app.route('/auth/register', methods=['POST'])
+@app.route('/auth/register', methods=['GET', 'POST'])
 def register_user():
     email = request.form['email']
     password = request.form['password']
-
-    User.register(email, password)
-
-    return render_template("profile.html", email=session['email'])
+    player = request.form['player']
+    age = request.form['age']
+    sport = request.form.get('sport')
+    team = request.form['team']
+    User.register(email, password, player, age, sport, team)
+    return render_template("profile.html", email=session['email'], player=player, age=age, sport=sport, team=team)
 
 
 @app.route('/blogs/<string:user_id>')
@@ -57,10 +62,19 @@ def user_blogs(user_id=None):
        user = User.get_by_id(user_id)
     else:
        user = User.get_by_email(session['email'])
-
     blogs = user.get_blogs()
 
     return render_template("user_blogs.html", blogs=blogs, email=user.email)
+
+@app.route('/stats')
+def stats_template(user_id=None):
+    user_id = session.get('email')
+    if user_id is not None:
+        return render_template('gamedayinput.html')
+    else:
+        return render_template('login.html')
+
+
 
 
 @app.route('/posts/<string:blog_id>')

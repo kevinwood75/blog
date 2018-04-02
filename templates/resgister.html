@@ -1,14 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
+
+<span class="d-block p-2 bg-primary text-white"><p class="text-center"><h1>Player Registration</h1></p></span>
+
 <div class="container page-form">
      <form id="login-form" action="/auth/register" method="post">
          <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email">Username</label>
               <input type="text" id="email" class="form-control" name="email">
          </div>
-         <div class=""form-group">
+         <div class="form-group">
               <label for="password">Password</label>
               <input type="password" id="password" class="form-control" name="password">
+         </div>
+         <hr>
+         <div class="form-group">
+              <label for="player">Player Name</label>
+              <input type="text" id="player" class="form-control" name="player">
+         </div>
+         <div class="form-group">
+              <label for="age">Age</label>
+              <input type="text" id="age" class="form-control" name="age">
+         </div>
+         <div class="form-group">
+              <label for="sport">What Sport</label>
+              <select id="sport" class="form-control" name="sport">
+                    <option value="selected">Choose...</option>
+                    <option value="baseball">Baseball</option>
+                    <option value="hockey">Hockey</option>
+              </select>
+         </div>
+         <div class="form-group">
+              <label for="team">Team Name</label>
+              <input type="text" id="team" class="form-control" name="team">
          </div>
          <div class="form-group">
               <button type="submit" class="btn btn-primary">Submit</button>
