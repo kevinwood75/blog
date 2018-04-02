@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3b5089-a78c-4f9b-995f-87b7789b1463" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/baseball.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/gamedayinput.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.py" afterPath="$PROJECT_DIR$/models/user.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/profile.html" afterPath="$PROJECT_DIR$/templates/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/resgister.html" afterPath="$PROJECT_DIR$/templates/resgister.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/baseball.py" afterPath="$PROJECT_DIR$/models/baseball.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +40,8 @@
       <file leaf-file-name="baseball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/baseball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="79" lean-forward="true" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -178,8 +173,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="100" />
-    <option name="y" value="106" />
+    <option name="x" value="98" />
+    <option name="y" value="31" />
     <option name="width" value="1304" />
     <option name="height" value="777" />
   </component>
@@ -512,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522532554388</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added basball stats and model">
+      <created>1522637525946</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1522637525946</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="100" y="106" width="1304" height="777" extended-state="0" />
+    <frame x="98" y="31" width="1304" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26226994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -572,7 +574,8 @@
     <MESSAGE value="changed port it was running on" />
     <MESSAGE value="Added more model code" />
     <MESSAGE value="Add more functions to blog app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more functions to blog app" />
+    <MESSAGE value="added basball stats and model" />
+    <option name="LAST_COMMIT_MESSAGE" value="added basball stats and model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -741,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/baseball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="8" column="79" lean-forward="true" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

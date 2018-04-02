@@ -6,7 +6,7 @@ import datetime
 
 
 class User(object):
-    def __init__(self, email, date, hits, ab, runs, second, third, hr, rbi, so,  _id=None):
+    def __init__(self, email, date, hits, ab, runs, second, third, hr, rbi, so, _id=None):
         self.email = email
         self.date = date
         self.hits = hits
