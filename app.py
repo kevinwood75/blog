@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, session
 from models.user import User
 from models.blog import Blog
+from models.baseball import Baseball
 from common.database import Database
+from models.util import *
+
 
 app = Flask(__name__)
 app.secret_key = "woodez"
@@ -20,9 +23,6 @@ def login_template():
 @app.route('/register')
 def register_template():
     return render_template('resgister.html')
-
-
-
 
 @app.before_first_request
 def initialize_database():
@@ -59,15 +59,15 @@ def register_user():
 @app.route('/blogs')
 def user_blogs(user_id=None):
     if user_id is not None:
-       user = User.get_by_id(user_id)
+        user = User.get_by_id(user_id)
     else:
-       user = User.get_by_email(session['email'])
+        user = User.get_by_email(session['email'])
     blogs = user.get_blogs()
-
     return render_template("user_blogs.html", blogs=blogs, email=user.email)
 
+
 @app.route('/stats')
-def stats_template(user_id=None):
+def stats_template():
     user_id = session.get('email')
     if user_id is not None:
         return render_template('gamedayinput.html')
@@ -75,13 +75,32 @@ def stats_template(user_id=None):
         return render_template('login.html')
 
 
+@app.route('/input/stats', methods=['POST'])
+def stats_input():
+    email = session.get('email')
+    if email is not None:
+        date = request.form['when']
+        hits = check_null(request.form['hits'])
+        ab = check_null(request.form['ab'])
+        runs = check_null(request.form['runs'])
+        second = check_null(request.form['2b'])
+        third = check_null(request.form['3b'])
+        hr = check_null(request.form['hr'])
+        rbi = check_null(request.form['rbi'])
+        so = check_null(request.form['so'])
+        if Baseball.get_by_user(date, email) is None :
+            Baseball.input(email, date, hits, ab, runs, second, third, hr, rbi, so)
+            return render_template("statsinput.html", email=session['email'], date=date, hits=hits, ab=ab, runs=runs, second=second, third=third, hr=hr, rbi=rbi, so=so)
+        else:
+            return render_template("gamedayinput.html")
+    else:
+        return render_template('login.html')
 
 
 @app.route('/posts/<string:blog_id>')
 def blog_posts(blog_id):
     blog = Blog.from_mongo(blog_id)
     posts = blog.get_posts()
-    
     return render_template('posts.html', posts=posts, blog_title=blog.title)
 
 if __name__ == '__main__':

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-form">
+   <div class="card text-center">
+     <div class="card-header">
+       Player Login:
+     </div>
+     <div class="card-body">
+       <h5 class="card-title">{{ email }}</h5>
+     </div>
+     <ul class="list-group list-group-flush">
+       <li class="list-group-item">Date: {{ date }}</li>
+       <li class="list-group-item">Hits: {{ hits }}</li>
+       <li class="list-group-item">AB: {{ ab }}</li>
+       <li class="list-group-item">Runs: {{ runs }}</li>
+       <li class="list-group-item">Doubles: {{ second }}</li>
+       <li class="list-group-item">Triple: {{ third }}</li>
+       <li class="list-group-item">Homerun: {{ hr }}</li>
+       <li class="list-group-item">RBI: {{ rbi }}</li>
+       <li class="list-group-item">SO: {{ so }}</li>
+     </ul>
+   </div>
+</div>
+
+{% endblock %}
