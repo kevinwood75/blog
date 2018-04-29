@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, session
-from models.user import User
-from models.blog import Blog
+from flask import Flask, render_template, session
+from flask import request
 from models.baseball import Baseball
-from common.database import Database
+from models.blog import Blog
+from models.roster import Roster
 from models.util import *
 
+from app.common import Database
+from app.models.user import User
 
 app = Flask(__name__)
 app.secret_key = "woodez"
@@ -66,6 +68,17 @@ def user_blogs(user_id=None):
     return render_template("user_blogs.html", blogs=blogs, email=user.email)
 
 
+@app.route('/roster/add', methods=['POST'])
+def add_player():
+    data = request.json
+    existing_id = Roster.get_by_number(data['number'])
+    if existing_id is not None:
+       data.update({"_id": existing_id['_id']})
+       Roster.input(**data)
+    else:
+       Roster.input(**data)
+
+
 @app.route('/stats')
 def stats_template():
     user_id = session.get('email')
@@ -105,4 +118,3 @@ def blog_posts(blog_id):
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
-
