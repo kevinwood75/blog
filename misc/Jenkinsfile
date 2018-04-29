@@ -14,7 +14,7 @@ node('docker02.woodez.net') {
    }
 
    stage('docker stop container') {
-     sh 'docker container rm -f healthapi'
+     sh 'docker container rm -f baseball'
    }
 
    stage('docker run container') {
