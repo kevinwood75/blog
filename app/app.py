@@ -1,6 +1,6 @@
 from flask import Flask, render_template, session
 from flask import request
-from app.models.baseball import Baseball
+from models.baseball import Baseball
 from app.models.blog import Blog
 from app.models.roster import Roster
 from app.models.util import *
