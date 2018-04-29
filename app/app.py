@@ -1,11 +1,11 @@
 from flask import Flask, render_template, session
 from flask import request
-from models.baseball import Baseball
-from models.blog import Blog
-from models.roster import Roster
-from models.util import *
+from app.models.baseball import Baseball
+from app.models.blog import Blog
+from app.models.roster import Roster
+from app.models.util import *
 
-from app.common import Database
+from app.common.database import Database
 from app.models.user import User
 
 app = Flask(__name__)
@@ -117,4 +117,4 @@ def blog_posts(blog_id):
     return render_template('posts.html', posts=posts, blog_title=blog.title)
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=4000, debug=True)

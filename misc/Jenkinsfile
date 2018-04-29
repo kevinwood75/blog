@@ -12,7 +12,11 @@ node('docker02.woodez.net') {
        def app = docker.build("kwood475/baseball:${env_id}", '.').push()
      }
    }
-   
+
+   stage('docker stop container') {
+     sh 'docker container rm -f healthapi'
+   }
+
    stage('docker run container') {
      def apiContainer = docker.image("kwood475/baseball:${env_id}").run("--name baseball --publish 4000:4000")
    }
