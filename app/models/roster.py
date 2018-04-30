@@ -1,7 +1,6 @@
 import uuid
 
-from app.common.database import Database
-
+from common.database import Database
 
 class Roster(object):
     def __init__(self, number, firstname, lastname, bathand, fieldhand, birthyear, _id = None):
