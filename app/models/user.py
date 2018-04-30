@@ -3,8 +3,8 @@ import uuid
 
 from flask import session
 
-from common.database import Database
-from models.blog import Blog
+from app.common.database import Database
+from app.models.blog import Blog
 
 
 class User(object):

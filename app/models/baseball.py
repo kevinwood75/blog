@@ -1,6 +1,6 @@
 import uuid
-from models.util import check_null
-from common.database import Database
+from app.models.util import check_null
+from app.common.database import Database
 
 
 class Baseball(object):

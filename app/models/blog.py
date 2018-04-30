@@ -1,8 +1,8 @@
 import datetime
 import uuid
 
-from common.database import Database
-from models.post import Post
+from app.common.database import Database
+from app.models.post import Post
 
 
 class Blog(object):
