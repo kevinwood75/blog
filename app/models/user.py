@@ -3,7 +3,7 @@ import uuid
 
 from flask import session
 
-from app.common import Database
+from app.common.database import Database
 from app.models.blog import Blog
 
 

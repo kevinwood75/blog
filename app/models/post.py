@@ -1,7 +1,8 @@
 import datetime
 import uuid
 
-from app.common import Database
+
+from common.database import Database
 
 
 class Post(object):
@@ -15,8 +16,7 @@ class Post(object):
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def save_to_mongo(self):
-        Database.insert(collection='posts',
-                        data=self.json())
+        Database.insert(collection='posts', data=self.json())
 
     def json(self):
         return {
@@ -30,9 +30,9 @@ class Post(object):
 
     @classmethod
     def from_mongo(cls, id):
-        post_data = find_one(collection='posts', query={'_id': id})
+        post_data = Database.find_one(collection='posts', query={'_id': id})
         return cls(**post_data)
 
     @staticmethod
     def from_blog(id):
-        return [ post for post in Database.find(collection='posts', query={'blog_id': id})]
+        return [post for post in Database.find(collection='posts', query={'blog_id': id})]

@@ -1,6 +1,6 @@
 import uuid
 
-from app.common import Database
+from app.common.database import Database
 
 
 class Roster(object):
