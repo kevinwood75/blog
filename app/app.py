@@ -1,12 +1,12 @@
 from flask import Flask, render_template, session
 from flask import request
-from models.baseball import Baseball
-from models.blog import Blog
-from models.roster import Roster
-from models.util import *
+from app.models.baseball import Baseball
+from app.models.blog import Blog
+from app.models.roster import Roster
+from app.models.util import check_null
 
-from common.database import Database
-from models.user import User
+from app.common.database import Database
+from app.models.user import User
 
 app = Flask(__name__)
 app.secret_key = "woodez"
