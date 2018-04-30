@@ -1,5 +1,5 @@
 import uuid
-from app.models.util import check_null
+from models.util import check_null
 from app.common.database import Database
 
 
