@@ -3,4 +3,4 @@ ENV LISTEN_PORT 4000
 
 COPY ./app /app
 WORKDIR /
-RUN pip install -r requirements.txt
+RUN pip install -r /app/requirements.txt
