@@ -3,10 +3,10 @@ from flask import request
 from models.baseball import Baseball
 from models.blog import Blog
 from models.roster import Roster
-from app.models.util import *
+from models.util import *
 
 from common.database import Database
-from  models.user import User
+from models.user import User
 
 app = Flask(__name__)
 app.secret_key = "woodez"
