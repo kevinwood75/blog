@@ -5,6 +5,8 @@ import uuid
 from app.common.database import Database
 
 
+
+
 class Post(object):
 
     def __init__(self, blog_id, title, content, author, created_date=datetime.datetime.utcnow(), _id=None):  # default paramaters can only be at the end

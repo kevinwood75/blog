@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     volumes:
-      - ./app:/app
+      - ./app:/test/app
     ports:
       - "4000:4000"
     environment:
